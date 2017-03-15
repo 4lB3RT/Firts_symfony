@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>TODO DETAILS</h1>
+    <table>
+        <thead>
+            <th>#</th>
+            <th>Description</th>
+            <th>Completed?</th>
+        </thead>
+        <tr>
+            <td>{{ task.id }}</td>
+            <td>{{ task.description}}</td>
+            <td>{{ task.createdate|date('d/m/y H:i:s') }}</td>
+            <td>
+                {% if task.completed %}
+                {% else %}
+                {% endif %}
+            </td>
+        </tr>
+    </table>

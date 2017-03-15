@@ -1,0 +1,15 @@
+{%  extends 'base.html.twig' %}
+{%  block body %}
+    <h1>TODO LIST</h1>
+    <a href="{{ path('todo_create') }}">Create</a>
+    <table>
+        <th>Description</th><th>Date Time</th>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.description }}</td></tr>{{ task.createdate|date('d/m/y H:i:s') }}</td>
+            <td><a href="{{ path('todo_details',{id:task.id})}}" class="btn btn-default" >View</a></td>
+            <td><a href="{{ path('todo_edit',{id:task.id})}}" class="btn btn-default" >Edit</a></td>
+            <td><a href="{{ path('todo_delete',{id:task.id})}}" class="btn btn-default" >Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
